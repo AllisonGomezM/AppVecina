@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title class="ion-text-center">Red Vecinos</ion-title>
+  </ion-toolbar >
+</ion-header>
+
+<ion-content> 
+<br><br><br>
+  <ion-card >
+  <br>
+    <ion-card-content>
+      <ion-item >
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input [(ngModel)]="newUser.email" required type="email" name="email"></ion-input>
+      </ion-item>
+      <br><br>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input [(ngModel)]="newUser.password" required type="password" name="password"></ion-input>
+      </ion-item>
+      <br><br>
+      <ion-button expand="block" (click)="login()">
+        <ion-icon name="exit-outline"> </ion-icon> 
+        Ingresar
+      </ion-button>
+      
+      <br><br>
+      <ion-button class="ion-text-center" color="clear" (click)="olvido()">
+        ¿Has olvidado tu contraseña?
+     </ion-button>
+     <br><br>
+    <h2 class="ion-text-center"> ¿No tienes cuenta?
+      <ion-button size="small" color="clear" [routerLink]="['/registro']"> Registrate</ion-button>    
+    </h2> 
+    </ion-card-content>
+    <br>
+  </ion-card>
+
+</ion-content>

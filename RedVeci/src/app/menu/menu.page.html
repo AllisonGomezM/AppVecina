@@ -1,9 +1,50 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>menu</ion-title>
+    <ion-title class="ion-text-justify">Red Vecinos</ion-title>
   </ion-toolbar>
 </ion-header>
+<br><br>
+<ion-item>
+  <ion-avatar slot="start">
+    <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  </ion-avatar>
+  <ion-label>Item Avatar</ion-label>
+</ion-item>
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="success">
+      <ion-title>Menú Vecinos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+      <ion-item>Menu Item</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu> 
+<ion-router-outlet id="main"></ion-router-outlet>
 
 <ion-content>
+  <ion-content fullscreen>
+    <ion-card>
+      <img src="./assets/icon/unnamed.jpg" />
+      <ion-card-header>
+        <ion-card-subtitle>Vecino</ion-card-subtitle>
+        <ion-card-title>Donancion de alimentos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Ayuda a tus vecinos donando alimentos. ENTRE TODOS PODEMOS
+        <ion-item>
+          <ion-label>Agregar a favorito</ion-label>
+          <ion-toggle slot="start" name="banana" color="warning" checked></ion-toggle>
+        </ion-item>
+      </ion-card-content>
+      
+    </ion-card>
+  </ion-content>
 
 </ion-content>

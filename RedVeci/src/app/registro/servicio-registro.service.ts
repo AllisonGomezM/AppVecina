@@ -1,13 +1,23 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http';
 import { CookieService } from "ngx-cookie-service";
+import { Storage } from '@ionic/storage'
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicioRegistroService {
 
-  constructor(private http: HttpClient, private cookies: CookieService) {console.log('Hello ServiceProvider Provider'); }
+  Token: any;
+  token_full: any;
+  jwt_token: any;
+  token_full_json: any;
+
+  constructor(private http: HttpClient, private cookies: CookieService,  private storage: Storage) {
+/*     this.cargar_storage();
+ */    console.log('Hello ServiceProvider Provider'); 
+  }
   crear(newCuenta){
     console.log(newCuenta);    
     let data =JSON.stringify({
@@ -32,7 +42,8 @@ export class ServicioRegistroService {
         .then((response) =>
         {
           console.log('API Response TOKEN : ', response);
-          resolve(response);
+          let jwt = resolve(response);
+          console.log(jwt);
         })
         .catch((error) =>
         {
@@ -41,23 +52,8 @@ export class ServicioRegistroService {
           reject(error.json());
         });
       });
-      /* return new Promise(resolve=>{
-        this.http.post(url,data,options)
-        .subscribe(data =>{
-          resolve(data);})
-        
-      });  */
-    /* return this.http.post<any>('https://redveci.com/api/register&name='+newCuenta.nombre+ '&email='+newCuenta.email+'&password='+newCuenta.password+'&password_confirmation='+newCuenta.pass_confirmar,
-      {
-         "name": newCuenta.nombre,
-         "email": newCuenta.email,
-         "password":newCuenta.password,
-         "password_confirmation":newCuenta.pass_confirmar,
-        
-      },
-           
-    ); */
   }
+
   setToken(token: string) {
     this.cookies.set("token", token);
     console.log(token);

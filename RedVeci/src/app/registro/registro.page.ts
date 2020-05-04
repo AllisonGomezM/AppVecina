@@ -19,8 +19,9 @@ export class RegistroPage implements OnInit {
   };
   regi= [];
   data:Observable<any>[];
-  token=[];
+  token:Observable<any>[];
   constructor(public alertCtrl: AlertController, private servicioRegistro:ServicioRegistroService, private http:HttpClient,public navCtrl: NavController, public router: Router) { }
+  
   crear(){
     if(this.newCuenta.name==""||this.newCuenta.email==""||this.newCuenta.password==""||this.newCuenta.password_confirmation==""){
       this.doAlert();
@@ -30,13 +31,8 @@ export class RegistroPage implements OnInit {
         console.log(this.newCuenta);
         if (data["ok"]){
           console.log(data);
-          this.servicioRegistro.getToken= data ['token'];
-          console.log(this.token);
           this.router.navigate(['/menu']);
         }
-      },
-      error=>{
-        console.log("error baby");
       }
       ) 
     }
